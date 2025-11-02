@@ -1,5 +1,9 @@
-#include <bits/stdc++.h>
+#include "bits/stdc++.h"
 using namespace std;
+
+random_device rrrddd;
+mt19937 ggggg(rrrddd());
+
 
 int select(int nn) {
     return rand() % nn;
@@ -85,7 +89,7 @@ void board() {
 }
 
 void Lost() {
-    system("cls");
+    system("clear");
     board();
     cout << endl << endl << "     You Lost. ";
     getchar();
@@ -94,7 +98,7 @@ void Lost() {
 }
 
 void Won() {
-    system("cls");
+    system("clear");
     board();
     cout << endl << endl << "      You Won. ";
     getchar();
@@ -156,10 +160,11 @@ void kill(int idx) {
     int i = secure[idx][0];
     int j = secure[idx][1];
     // while(gold(i, j)) {
-    //     idx = select((int)secure.size());
-    //     i = secure[idx][0];
-    //     j = secure[idx][1];
-    // }
+    while(vis[i][j]) {
+        idx = select((int)secure.size());
+        i = secure[idx][0];
+        j = secure[idx][1];
+    }
     secure.erase(secure.begin() + idx);
     if(me(i, j) or gold(i, j))  Lost();
 }
@@ -179,7 +184,7 @@ int main() {
     srand(time(0));
     ini();
     while(1) {
-        random_shuffle(secure.begin(), secure.end());
+        shuffle(secure.begin(), secure.end(), ggggg);
         board();
         int next = select((int)secure.size());
         int i = secure[next][0];
@@ -197,7 +202,7 @@ int main() {
         kill(next);
         kill(next);
         cnt++;
-        system("cls");
+        system("clear");
     }
     return 0;
 }
