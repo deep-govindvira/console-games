@@ -1,6 +1,10 @@
-#include <windows.h>
-#include <bits/stdc++.h>
+#include "bits/stdc++.h"
 using namespace std;
+
+random_device rrrddd;
+mt19937 ggggg(rrrddd());
+
+
 void PrintTeam(string);
 class Team {
   private :
@@ -68,7 +72,7 @@ int main() {
     int rounds = a.size()+1;
     int first = 1;
     while(rounds) {
-        system("cls");
+        system("clear");
         cout << "\n    ";
         Race();
         if(first) {
@@ -89,7 +93,7 @@ int main() {
         cout << "\n\n" << "    " << rounds-1 << " Sec ... " << "\n\n";
         color("White");
         // shuffle
-        random_shuffle(b.begin(), b.end());
+        shuffle(b.begin(), b.end(), ggggg);
         // count score
         for(int i = 0; i < T.size(); i++) {
             T[i].set_score(T[i].get_score() + b[i]);
@@ -141,37 +145,37 @@ int main() {
     }
 }
 void color(string c) {
-    HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-    if(c == "Blue")
-        SetConsoleTextAttribute(h, 1);
-    else if(c == "Green")
-        SetConsoleTextAttribute(h, 2);
-    else if(c == "Cyan")
-        SetConsoleTextAttribute(h, 3);
-    else if(c == "Red")
-        SetConsoleTextAttribute(h, 4);
-    else if(c == "Purple")
-        SetConsoleTextAttribute(h, 5);
-    else if(c == "Yellow")
-        SetConsoleTextAttribute(h, 6);
-    else if(c == "White")
-        SetConsoleTextAttribute(h, 7);
-    else if(c == "Black")
-        SetConsoleTextAttribute(h, 8);
-    else if(c == "Light Blue")
-        SetConsoleTextAttribute(h, 9);
-    else if(c == "Light Green")
-        SetConsoleTextAttribute(h, 10);
-    else if(c == "Light Cyan")
-        SetConsoleTextAttribute(h, 11);
-    else if(c == "Light Red")
-        SetConsoleTextAttribute(h, 12);
-    else if(c == "Light Purple")
-        SetConsoleTextAttribute(h, 13);
-    else if(c == "Light Yellow")
-        SetConsoleTextAttribute(h, 14);
-    else if(c == "Light White")
-        SetConsoleTextAttribute(h, 15);
+    // HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+    // if(c == "Blue")
+    //     SetConsoleTextAttribute(h, 1);
+    // else if(c == "Green")
+    //     SetConsoleTextAttribute(h, 2);
+    // else if(c == "Cyan")
+    //     SetConsoleTextAttribute(h, 3);
+    // else if(c == "Red")
+    //     SetConsoleTextAttribute(h, 4);
+    // else if(c == "Purple")
+    //     SetConsoleTextAttribute(h, 5);
+    // else if(c == "Yellow")
+    //     SetConsoleTextAttribute(h, 6);
+    // else if(c == "White")
+    //     SetConsoleTextAttribute(h, 7);
+    // else if(c == "Black")
+    //     SetConsoleTextAttribute(h, 8);
+    // else if(c == "Light Blue")
+    //     SetConsoleTextAttribute(h, 9);
+    // else if(c == "Light Green")
+    //     SetConsoleTextAttribute(h, 10);
+    // else if(c == "Light Cyan")
+    //     SetConsoleTextAttribute(h, 11);
+    // else if(c == "Light Red")
+    //     SetConsoleTextAttribute(h, 12);
+    // else if(c == "Light Purple")
+    //     SetConsoleTextAttribute(h, 13);
+    // else if(c == "Light Yellow")
+    //     SetConsoleTextAttribute(h, 14);
+    // else if(c == "Light White")
+    //     SetConsoleTextAttribute(h, 15);
 }
 void Usain_Bolt() {
     string a = "Usain Bolt";
