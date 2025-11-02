@@ -156,10 +156,11 @@ void kill(int idx) {
     int i = secure[idx][0];
     int j = secure[idx][1];
     // while(gold(i, j)) {
-    //     idx = select((int)secure.size());
-    //     i = secure[idx][0];
-    //     j = secure[idx][1];
-    // }
+    while(vis[i][j]) {
+        idx = select((int)secure.size());
+        i = secure[idx][0];
+        j = secure[idx][1];
+    }
     secure.erase(secure.begin() + idx);
     if(me(i, j) or gold(i, j))  Lost();
 }
