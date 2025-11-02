@@ -1,6 +1,9 @@
-#include <windows.h>
-#include <bits/stdc++.h>
+#include "bits/stdc++.h"
 using namespace std;
+
+random_device rrrddd;
+mt19937 ggggg(rrrddd());
+
 
 #define N 10
 
@@ -353,7 +356,7 @@ struct IPL {
         g[9].id = 9;
         m.resize(45);
         int mi = 0;
-        shuffle();
+        shuffle__();
         for(int i = 0; i < 9; i++) {
             for(int j = 0; j < 5; j++) {
                 Match cur(g[match[i][j].first - 1].name, g[match[i][j].second - 1].name);
@@ -363,11 +366,11 @@ struct IPL {
         }
     }
 
-    void shuffle() {
+    void shuffle__() {
         srand(time(0));
-        random_shuffle(match.begin(), match.end());
+        shuffle(match.begin(), match.end(), ggggg);
         for(vector<pair<int, int>>& v : match) {
-            random_shuffle(v.begin(), v.end());
+            shuffle(v.begin(), v.end(), ggggg);
             for(auto [i, j] : v) {
                 if(rand() % 2) swap(i, j);
             }
@@ -554,7 +557,7 @@ struct IPL {
         cout << endl;
         Schedule();
         for(int i = 0; i < m.size(); i++) {
-            system("cls");
+            system("clear");
             cout << endl;
             s(3);
             I_P_L();
@@ -575,7 +578,7 @@ struct IPL {
             m[i].Play();
             update(" ", m[i]);
         }
-        system("cls");
+        system("clear");
         for(int i = 0; i < N; i++) {
             if(i < 4) {
                 g[i].status = "Q";
@@ -619,7 +622,7 @@ struct IPL {
         update("Q", f);
         string winner = f.winner.name;
         string losser = f.losser.name;
-        system("cls");
+        system("clear");
         cout << endl;
         s(3);
         I_P_L();
@@ -671,37 +674,37 @@ int Run() {
     return r;
 }
 void color(string c) {
-    HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-    if(c == "Blue")
-        SetConsoleTextAttribute(h, 1);
-    else if(c == "Green")
-        SetConsoleTextAttribute(h, 2);
-    else if(c == "Cyan")
-        SetConsoleTextAttribute(h, 3);
-    else if(c == "Red")
-        SetConsoleTextAttribute(h, 4);
-    else if(c == "Purple")
-        SetConsoleTextAttribute(h, 5);
-    else if(c == "Yellow")
-        SetConsoleTextAttribute(h, 6);
-    else if(c == "White")
-        SetConsoleTextAttribute(h, 7);
-    else if(c == "Black")
-        SetConsoleTextAttribute(h, 8);
-    else if(c == "Light Blue")
-        SetConsoleTextAttribute(h, 9);
-    else if(c == "Light Green")
-        SetConsoleTextAttribute(h, 10);
-    else if(c == "Light Cyan")
-        SetConsoleTextAttribute(h, 11);
-    else if(c == "Light Red")
-        SetConsoleTextAttribute(h, 12);
-    else if(c == "Light Purple")
-        SetConsoleTextAttribute(h, 13);
-    else if(c == "Light Yellow")
-        SetConsoleTextAttribute(h, 14);
-    else if(c == "Light White")
-        SetConsoleTextAttribute(h, 15);
+    // HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+    // if(c == "Blue")
+    //     SetConsoleTextAttribute(h, 1);
+    // else if(c == "Green")
+    //     SetConsoleTextAttribute(h, 2);
+    // else if(c == "Cyan")
+    //     SetConsoleTextAttribute(h, 3);
+    // else if(c == "Red")
+    //     SetConsoleTextAttribute(h, 4);
+    // else if(c == "Purple")
+    //     SetConsoleTextAttribute(h, 5);
+    // else if(c == "Yellow")
+    //     SetConsoleTextAttribute(h, 6);
+    // else if(c == "White")
+    //     SetConsoleTextAttribute(h, 7);
+    // else if(c == "Black")
+    //     SetConsoleTextAttribute(h, 8);
+    // else if(c == "Light Blue")
+    //     SetConsoleTextAttribute(h, 9);
+    // else if(c == "Light Green")
+    //     SetConsoleTextAttribute(h, 10);
+    // else if(c == "Light Cyan")
+    //     SetConsoleTextAttribute(h, 11);
+    // else if(c == "Light Red")
+    //     SetConsoleTextAttribute(h, 12);
+    // else if(c == "Light Purple")
+    //     SetConsoleTextAttribute(h, 13);
+    // else if(c == "Light Yellow")
+    //     SetConsoleTextAttribute(h, 14);
+    // else if(c == "Light White")
+    //     SetConsoleTextAttribute(h, 15);
 }
 void CSK() {
     string a = "Chennai Super Kings";
@@ -962,7 +965,7 @@ void set_fav() {
         "Delhi Capitals",
         "Mumbai Indians"
     };
-    random_shuffle(rnd_fav.begin(), rnd_fav.end());
+    shuffle(rnd_fav.begin(), rnd_fav.end(), ggggg);
     fav.push_back(rnd_fav[rand() % rnd_fav.size()]);
     // fav.push_back("Chennai Super Kings");
     // fav.push_back("Gujarat Titans");
