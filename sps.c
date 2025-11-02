@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <time.h>
-#include <stdlib.h>
-#include <stdlib.h>
-#include <conio.h>
+#include "bits/stdc++.h"
 int difference(int x, int y)
 {
     if(x < y)   return y - x;
@@ -15,7 +11,7 @@ int main()
     int win = 0;
     int loss = 0;
     int infinity = 0;
-    printf("\n   SPS Tournament - %d Matches", matches);        getch();
+    printf("\n   SPS Tournament - %d Matches", matches);        getchar();
     printf("\n\n");
     for(int i = 1; i <= matches; i++)
     {
@@ -56,19 +52,19 @@ int main()
         printf("   AI  : %d", y);
         if(x == y)
         {
-            printf("\n\n   .. Draw ..");        getch();
+            printf("\n\n   .. Draw ..");        getchar();
             printf("\n\n");
             draw++;
         }
         else if((x == 1 && y == 2) || (x == 2 && y == 3) || (x == 3 && y == 1))
         {
-            printf("\n\n   # Defeat #");        getch();
+            printf("\n\n   # Defeat #");        getchar();
             printf("\n\n");
             loss++;
         }
         else if((x == 1 && y == 3) || (x == 2 && y == 1) || (x == 3 && y == 2))
         {
-            printf("\n\n   !! Victory !!");     getch();
+            printf("\n\n   !! Victory !!");     getchar();
             printf("\n\n");
             win++;
         }
@@ -86,26 +82,26 @@ int main()
         printf("   AI  : %d", y);
         if(x == y)
         {
-            printf("\n\n   .. Draw ..");        getch();
+            printf("\n\n   .. Draw ..");        getchar();
             printf("\n\n");
             draw++;
             goto lable;
         }
         else if((x == 1 && y == 2) || (x == 2 && y == 3) || (x == 3 && y == 1))
         {
-            printf("\n\n   # Defeat #");        getch();
+            printf("\n\n   # Defeat #");        getchar();
             printf("\n\n");
             loss++;
         }
         else if((x == 1 && y == 3) || (x == 2 && y == 1) || (x == 3 && y == 2))
         {
-            printf("\n\n   !! Victory !!");     getch();
+            printf("\n\n   !! Victory !!");     getchar();
             printf("\n\n");
             win++;
         }
         exit(0);
     }
     else if(win > loss)     printf("\n--------------- Tournament - Won ----------------\n\n");
-    else                    printf("\n--------------- Tournament - Loss ---------------\n\n");  getch();
+    else                    printf("\n--------------- Tournament - Loss ---------------\n\n");  getchar();
     return 0;
 }
