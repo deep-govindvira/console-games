@@ -1,6 +1,9 @@
-#include <windows.h>
-#include <bits/stdc++.h>
+#include "bits/stdc++.h"
 using namespace std;
+
+random_device rrrddd;
+mt19937 ggggg(rrrddd());
+
 map<string, int> value = {
     {"Qatar",29},
     {"Ecuador",24},
@@ -57,37 +60,37 @@ void s(int n) {
 }
 
 void color(string color) {
-    HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-    if(color == "Blue")
-        SetConsoleTextAttribute(h, 1);
-    else if(color == "Green")
-        SetConsoleTextAttribute(h, 2);
-    else if(color == "Cyan")
-        SetConsoleTextAttribute(h, 3);
-    else if(color == "Red")
-        SetConsoleTextAttribute(h, 4);
-    else if(color == "Purple")
-        SetConsoleTextAttribute(h, 5);
-    else if(color == "Yellow")
-        SetConsoleTextAttribute(h, 6);
-    else if(color == "White")
-        SetConsoleTextAttribute(h, 7);
-    else if(color == "Black")
-        SetConsoleTextAttribute(h, 8);
-    else if(color == "Light Blue")
-        SetConsoleTextAttribute(h, 9);
-    else if(color == "Light Green")
-        SetConsoleTextAttribute(h, 10);
-    else if(color == "Light Cyan")
-        SetConsoleTextAttribute(h, 11);
-    else if(color == "Light Red")
-        SetConsoleTextAttribute(h, 12);
-    else if(color == "Light Purple")
-        SetConsoleTextAttribute(h, 13);
-    else if(color == "Light Yellow")
-        SetConsoleTextAttribute(h, 14);
-    else if(color == "Light White")
-        SetConsoleTextAttribute(h, 15);
+    // HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+    // if(color == "Blue")
+    //     SetConsoleTextAttribute(h, 1);
+    // else if(color == "Green")
+    //     SetConsoleTextAttribute(h, 2);
+    // else if(color == "Cyan")
+    //     SetConsoleTextAttribute(h, 3);
+    // else if(color == "Red")
+    //     SetConsoleTextAttribute(h, 4);
+    // else if(color == "Purple")
+    //     SetConsoleTextAttribute(h, 5);
+    // else if(color == "Yellow")
+    //     SetConsoleTextAttribute(h, 6);
+    // else if(color == "White")
+    //     SetConsoleTextAttribute(h, 7);
+    // else if(color == "Black")
+    //     SetConsoleTextAttribute(h, 8);
+    // else if(color == "Light Blue")
+    //     SetConsoleTextAttribute(h, 9);
+    // else if(color == "Light Green")
+    //     SetConsoleTextAttribute(h, 10);
+    // else if(color == "Light Cyan")
+    //     SetConsoleTextAttribute(h, 11);
+    // else if(color == "Light Red")
+    //     SetConsoleTextAttribute(h, 12);
+    // else if(color == "Light Purple")
+    //     SetConsoleTextAttribute(h, 13);
+    // else if(color == "Light Yellow")
+    //     SetConsoleTextAttribute(h, 14);
+    // else if(color == "Light White")
+    //     SetConsoleTextAttribute(h, 15);
 }
 
 vector<string> teams = {
@@ -828,9 +831,9 @@ void Team(string a) {
 
 
 void play() {
-    system("cls");
+    system("clear");
     vector<int> point(32, 0);
-    random_shuffle(teams.begin(), teams.end());
+    shuffle(teams.begin(), teams.end(), ggggg);
     vector<string> a;
     for(int i = 0; i < 32; i++) {
         a.push_back(teams[i]);
@@ -841,9 +844,9 @@ void play() {
         cout << endl;
     }
     getchar();
-    system("cls");
+    system("clear");
     for(int i = 0; i < 32; i++) point[i] = i + 1;
-    random_shuffle(point.begin(), point.end());
+    shuffle(point.begin(), point.end(), ggggg);
     vector<string> b;
     for(int i = 0; i < a.size(); i += 2) {
         if(point[value[a[i]]] + value[a[i + 1]] - value[a[i]] > point[value[a[i + 1]]])   b.push_back(a[i]);
@@ -864,8 +867,8 @@ void play() {
         cout << endl;
     }
     getchar();
-    system("cls");
-    random_shuffle(point.begin(), point.end());
+    system("clear");
+    shuffle(point.begin(), point.end(), ggggg);
     vector<string> c;
     for(int i = 0; i < b.size(); i += 2) {
         if(point[value[b[i]]] + value[b[i + 1]] - value[b[i]] > point[value[b[i + 1]]])   c.push_back(b[i]);
@@ -893,8 +896,8 @@ void play() {
         cout << endl;
     }
     getchar();
-    system("cls");
-    random_shuffle(point.begin(), point.end());
+    system("clear");
+    shuffle(point.begin(), point.end(), ggggg);
     vector<string> d;
     for(int i = 0; i < c.size(); i += 2) {
         if(point[value[c[i]]] + value[c[i + 1]] - value[c[i]] > point[value[c[i + 1]]])   d.push_back(c[i]);
@@ -928,8 +931,8 @@ void play() {
         cout << endl;
     }
     getchar();
-    system("cls");
-    random_shuffle(point.begin(), point.end());
+    system("clear");
+    shuffle(point.begin(), point.end(), ggggg);
     vector<string> e;
     for(int i = 0; i < d.size(); i += 2) {
         if(point[value[d[i]]] + value[d[i + 1]] - value[d[i]] > point[value[d[i + 1]]])   e.push_back(d[i]);
@@ -969,8 +972,8 @@ void play() {
         cout << endl;
     }
     getchar();
-    system("cls");
-    random_shuffle(point.begin(), point.end());
+    system("clear");
+    shuffle(point.begin(), point.end(), ggggg);
     vector<string> f;
     for(int i = 0; i < e.size(); i += 2) {
         if(point[value[e[i]]] + value[e[i + 1]] - value[e[i]] > point[value[e[i + 1]]])   f.push_back(e[i]);
@@ -1020,7 +1023,7 @@ void play() {
         cout << endl;
     }
     getchar();
-    system("cls");
+    system("clear");
 }
 
 int main() {
